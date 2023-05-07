@@ -1,7 +1,7 @@
-﻿using Ecommerce.Models.Interfaces;
+﻿using Ecommerce.Models.Catalogs.Interfaces;
 using System.Text.Json;
 
-namespace Ecommerce.Models
+namespace Ecommerce.Models.Catalogs
 {
     public class Product : ICatalogEntity
     {
@@ -13,8 +13,8 @@ namespace Ecommerce.Models
             Stock = stock;
             CategoryId = category;
             BrandId = brand;
+            CollectionIds = collections;
         }
-
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
@@ -31,9 +31,9 @@ namespace Ecommerce.Models
 
         public bool Validate(Catalog catalog)
         {
-            return !catalog.GetProducts.Any(p => p.Id == this.Id) &&
-                catalog.GetCategories.Any(c => c.Id.Equals(this.CategoryId)) &&
-                catalog.GetBrands.Any(b => b.Id.Equals(this.BrandId)) &&
+            return !catalog.GetProducts.Any(p => p.Id == Id) &&
+                catalog.GetCategories.Any(c => c.Id.Equals(CategoryId)) &&
+                catalog.GetBrands.Any(b => b.Id.Equals(BrandId)) &&
                 CollectionIds.All(c => catalog.GetClusters.Any(cc => cc.Id.Equals(c)));
         }
     }

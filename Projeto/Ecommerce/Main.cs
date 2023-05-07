@@ -1,6 +1,5 @@
 ﻿using Ecommerce.Models;
-
-Console.WriteLine("");
+using Ecommerce.Models.Catalogs;
 
 #region cea
 var cea = new Store("cea");
@@ -19,14 +18,15 @@ cea.Catalog.TryAddProduct(new Product(2, "Camiseta Gucci P Feminina", 159.90, 3,
 cea.ListCatalog();
 
 var ceaPolicarpo = cea.CustomerManagement.GetOrCreateCustomer("Policarpo", "gustavo.policarpo@inatel.br", "Santa Rita do Sapucai");
-var ceaPaganni = cea.CustomerManagement.GetOrCreateCustomer("Policarpo", "gustavo.policarpo@inatel.br", "Santa Rita do Sapucai");
+var ceaPaganni = cea.CustomerManagement.GetOrCreateCustomer("Pagani", "luis.pagani@inatel.br", "Pouso Alegre");
 
 var ceaPolicarpoCart = cea.Checkout.CreateCart(ceaPolicarpo);
 ceaPolicarpoCart.AddProductToCart(cea.Catalog.GetProductById(1));
+cea.Checkout.CreateOrder(ceaPolicarpoCart);
+
 var ceaPaganniCart = cea.Checkout.CreateCart(ceaPaganni);
 ceaPaganniCart.AddProductToCart(cea.Catalog.GetProductById(2));
-
-cea.Checkout.CreateOrder(ceaPolicarpoCart);
+// pagani didn't complete the order
 
 cea.ListCheckout();
 

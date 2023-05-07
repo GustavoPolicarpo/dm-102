@@ -1,4 +1,8 @@
-﻿namespace Ecommerce.Models
+﻿using Ecommerce.Models.Catalogs;
+using Ecommerce.Models.Checkouts;
+using Ecommerce.Models.CustomerManagements;
+
+namespace Ecommerce.Models
 {
     public class Store
     {
@@ -8,9 +12,7 @@
         }
         public string? Name { get; set; }
         public Catalog Catalog { get; set; } = new();
-
         public Checkout Checkout { get; set; } = new();
-
         public CustomerManagement CustomerManagement { get; set; } = new();
 
         public void ListCatalog()
@@ -37,7 +39,10 @@
         public void ListCheckout()
         {
             Console.WriteLine("Checkout Details");
+            Console.WriteLine("Orders:");
             Checkout.ListOrders();
+            Console.WriteLine("ActiveCarts:");
+            Checkout.ListActiveCarts();
         }
     }
 }

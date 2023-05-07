@@ -1,4 +1,4 @@
-﻿namespace Ecommerce.Models.Interfaces
+﻿namespace Ecommerce.Models.Catalogs.Interfaces
 {
     public interface ICatalogEntity
     {

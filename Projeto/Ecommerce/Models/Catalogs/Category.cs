@@ -1,8 +1,7 @@
-﻿using Ecommerce.Models.Interfaces;
-using System.Text;
+﻿using Ecommerce.Models.Catalogs.Interfaces;
 using System.Text.Json;
 
-namespace Ecommerce.Models
+namespace Ecommerce.Models.Catalogs
 {
     public class Category : ICatalogEntity
     {
@@ -26,8 +25,8 @@ namespace Ecommerce.Models
 
         public bool Validate(Catalog catalog)
         {
-            return !catalog.GetCategories.Any(x => x.Id == this.Id) &&
-                (this.FatherCategoryId == null || catalog.GetCategories.Any(x => x.Id.Equals(this.FatherCategoryId)));
+            return !catalog.GetCategories.Any(x => x.Id == Id) &&
+                (FatherCategoryId == null || catalog.GetCategories.Any(x => x.Id.Equals(FatherCategoryId)));
         }
     }
 }

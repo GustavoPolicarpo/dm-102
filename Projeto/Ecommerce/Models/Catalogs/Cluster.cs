@@ -1,7 +1,7 @@
-﻿using Ecommerce.Models.Interfaces;
+﻿using Ecommerce.Models.Catalogs.Interfaces;
 using System.Text.Json;
 
-namespace Ecommerce.Models
+namespace Ecommerce.Models.Catalogs
 {
     public class Cluster : ICatalogEntity
     {

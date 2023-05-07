@@ -1,4 +1,4 @@
-﻿namespace Ecommerce.Models
+﻿namespace Ecommerce.Models.Catalogs
 {
     public class Catalog
     {

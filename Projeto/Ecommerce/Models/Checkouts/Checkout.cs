@@ -1,4 +1,6 @@
-﻿namespace Ecommerce.Models
+﻿using Ecommerce.Models.CustomerManagements;
+
+namespace Ecommerce.Models.Checkouts
 {
     public class Checkout
     {
@@ -24,7 +26,15 @@
         {
             foreach (var order in Orders)
             {
-                order.PrintOrder();
+                order.OrderDetails();
+            }
+        }
+
+        public void ListActiveCarts()
+        {
+            foreach (var order in ActiveCarts)
+            {
+                order.CartDetails();
             }
         }
     }

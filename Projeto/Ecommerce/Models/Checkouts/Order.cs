@@ -1,6 +1,8 @@
-﻿using System.Text.Json;
+﻿using Ecommerce.Models.Catalogs;
+using Ecommerce.Models.CustomerManagements;
+using System.Text.Json;
 
-namespace Ecommerce.Models
+namespace Ecommerce.Models.Checkouts
 {
     public class Order
     {
@@ -18,7 +20,7 @@ namespace Ecommerce.Models
             TotalItems = cart.Products.Count;
         }
 
-        public void PrintOrder()
+        public void OrderDetails()
         {
             Console.WriteLine(JsonSerializer.Serialize(this));
         }
@@ -32,7 +34,7 @@ namespace Ecommerce.Models
         public ProductOrder(Product product)
         {
             Name = product.Name;
-            Price = product.Price; 
+            Price = product.Price;
         }
     }
 

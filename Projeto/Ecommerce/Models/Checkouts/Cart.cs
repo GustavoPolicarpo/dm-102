@@ -1,4 +1,8 @@
-﻿namespace Ecommerce.Models
+﻿using Ecommerce.Models.Catalogs;
+using Ecommerce.Models.CustomerManagements;
+using System.Text.Json;
+
+namespace Ecommerce.Models.Checkouts
 {
     public class Cart
     {
@@ -20,6 +24,11 @@
         public void RemoveProductFromCart(Product product)
         {
             Products.Remove(product);
+        }
+
+        public void CartDetails()
+        {
+            Console.WriteLine(JsonSerializer.Serialize(this));
         }
     }
 }
